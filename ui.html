@@ -1,0 +1,35 @@
+<script>
+  window.onmessage = (event) => {
+    const msg = event.data.pluginMessage;
+    
+    if (msg.type === 'export') {
+      // Convert the JSON object to a string
+      const jsonString = JSON.stringify(msg.data, null, 2);
+      
+      // Create a Blob from the JSON string
+      const blob = new Blob([jsonString], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      
+      // Create a temporary hidden link to trigger the download
+      const a = document.createElement('a');
+      a.href = url;
+      
+      let cleanName = msg.name 
+        ? msg.name.replace(/[^a-z0-9]+/gi, '_').replace(/^_|_$/g, '').toLowerCase()
+        : 'figma';
+        
+      a.download = `${cleanName}_structure.json`;
+      
+      // Append, click, and cleanup
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      // Tell the plugin code we are done so it can close
+      setTimeout(() => {
+        parent.postMessage({ pluginMessage: { type: 'done' } }, '*');
+      }, 100);
+    }
+  };
+</script>
