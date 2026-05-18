@@ -173,6 +173,6 @@ try {
 // Listen for the UI telling us the download started
 figma.ui.onmessage = msg => {
   if (msg.type === 'done') {
-    figma.closePlugin("✅ JSON Extracted! — Built by Tayza");
+    figma.closePlugin("JSON Extracted.");
   }
 };

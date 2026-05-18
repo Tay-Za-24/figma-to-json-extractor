@@ -21,7 +21,7 @@ Since this plugin is in active development and not yet published to the Figma Co
 3. Open any design file.
 4. From the top menu bar, go to **Plugins** -> **Development** -> **Import plugin from manifest...**
 5. Navigate to the folder where you saved this project and select the `manifest.json` file.
-6. The plugin will now appear in your menu under **Plugins** -> **Development** -> **Extract JSON Local (by Tayza)**.
+6. The plugin will now appear in your menu under **Plugins** -> **Development** -> **Extract JSON Local**.
 
 ## Usage
 1. **To extract specific elements:** Select one or more nodes (frames, shapes, text, etc.) in your Figma file, then run the plugin. It will download a JSON file containing only those elements.
@@ -31,4 +31,4 @@ Since this plugin is in active development and not yet published to the Figma Co
 This is an ongoing project. Feel free to open issues or submit pull requests if you have suggestions for extracting additional properties or improving the serialization logic!
 
 ---
-*Built by Tayza*
+*Built by Tayza with GEMINI CLI*
